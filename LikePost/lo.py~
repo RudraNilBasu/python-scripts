@@ -1,0 +1,10 @@
+#from facepy import GraphAPI
+import facebook
+graph = facebook.GraphAPI('EAACEdEose0cBACYKH2cwazJS0BafnyKmtVdxvVdAQ0iT6uZC3wXjsJIrrE8s7hZBUkFqFs6uZA7MyLZC967ytvZBGst3cZBDO6oyeQTWaFxeaLDKumuNdsmakRH7XAlTXGxOgbzX9cZBrVdMeF7S6IThEafsaj7FE5u6mus43r1ugZDZD')
+try:
+    graph.post(
+            path = 'me/feed',
+            message = 'Your message here'
+            
+    )
+
