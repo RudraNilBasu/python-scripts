@@ -5,7 +5,7 @@ import commands
 def battery():
 	state=commands.getoutput('upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state"')
 	print state
-	
+
 	# Run till battery is fully charged
 	full=0
 	while(full==0):
@@ -21,6 +21,7 @@ def battery():
 		Notify.init("BAT FULL")
 		st=Notify.Notification.new("Battery","fully-charged","dialog-information")
 		st.show()
+		state=commands.getoutput('upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state"')
 		time.sleep(60)
 	# battery() # call itself when the charge is disconnected
 battery()
