@@ -21,7 +21,7 @@ def battery():
 		Notify.init("BAT FULL")
 		st=Notify.Notification.new("Battery","fully-charged","dialog-information")
 		st.show()
-		state=commands.getoutput('upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state"')
 		time.sleep(60)
+		state=commands.getoutput('upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state"')
 	# battery() # call itself when the charge is disconnected
 battery()
