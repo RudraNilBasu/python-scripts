@@ -3,16 +3,20 @@
 
 import matplotlib.pyplot as plt 
 import imageio
+import os
 
 imageio.plugins.ffmpeg.download() # download ffmpeg plugin if not already present
-filename = '/home/arka/Downloads/The.Man.Who.Knew.Infinity.2015.720p.BRRip.x264.AAC-ETRG/tmwki.mp4' # path to video
+filename = raw_input(" Enter path to video : ") # path to video
+assert os.path.exists(filename), "I did not find the file at, "+str(filename)
 vid = imageio.get_reader(filename,  'ffmpeg')
+
+frame_interval = input("Enter frame interval : ")
 
 len = vid.get_length()
 print len
 
 for i in range(0, len):
-	if(i%10000 == 0):
+	if(i%frame_interval == 0):
 		image = vid.get_data(i)
 		fig = plt.figure()
 		fig.suptitle('image #{}'.format(i), fontsize=10)
